@@ -1,38 +1,138 @@
-.App {
+/* Background & Centering */
+.background {
+  background: #ff99cc; /* Solid pink background */
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Card Styling */
+.greeting-card {
+  width: 350px;
+  height: 500px;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  perspective: 1000px;
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Front Cover */
+.card-front {
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.open-me {
+  font-family: 'Arial', sans-serif;
+  font-size: 2rem;
+  color: #ff6b6b;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.instruction {
+  font-size: 1rem;
+  color: #666;
+  margin-top: 1rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Card Content */
+.card-back {
+  background: #fff0f6;
+  transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 1.5rem;
 }
 
-.App-link {
-  color: #61dafb;
+/* Animations */
+.bunny-rain {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.cursive-header {
+  font-family: 'Brush Script MT', cursive;
+  color: #ff6b6b;
+  text-align: center;
+  font-size: 2.2rem;
+}
+
+.love-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.love-list li {
+  margin: 0.8rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.love-list li::before {
+  content: '🐇';
+  position: absolute;
+  left: 0;
+}
+
+.signature {
+  margin-top: auto;
+  text-align: center;
+  font-style: italic;
+  color: #666;
+}
+
+/* Mobile Optimization */
+@media (max-width: 480px) {
+  .greeting-card {
+    width: 90vw;
+    height: 70vh;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .cursive-header {
+    font-size: 1.8rem;
   }
+}
+
+.greeting-card {
+  /* Add perspective to parent */
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.card-front, .card-back {
+  /* Force hardware acceleration */
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.card-front {
+  /* Front face should be visible initially */
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  /* Back face starts rotated */
+  transform: rotateY(180deg);
 }
