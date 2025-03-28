@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/AmaniCard/static/css/main.ae1060f4.css",
+    "main.js": "/AmaniCard/static/js/main.5250f7fa.js",
+    "index.html": "/AmaniCard/index.html",
+    "main.ae1060f4.css.map": "/AmaniCard/static/css/main.ae1060f4.css.map",
+    "main.5250f7fa.js.map": "/AmaniCard/static/js/main.5250f7fa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ae1060f4.css",
+    "static/js/main.5250f7fa.js"
+  ]
+}
